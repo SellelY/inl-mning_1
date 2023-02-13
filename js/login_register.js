@@ -8,3 +8,27 @@ function setFormMessage(formElement, type, message) {
     messageElement.classList.add(`form__message--${type}`);
 }
 
+document.addEventListener("DOMContentLoaded", () => {
+    const loginForm = document.getElementById("login");
+    const registerForm = document.getElementById("register");
+
+    document.querySelector("#linkCreateAccount").addEventListener("click", e => {
+        e.preventDefault();
+        loginForm.classList.add("form--hidden");
+        registerForm.classList.remove("form--hidden");
+    });
+
+    document.querySelector("#linkLogin").addEventListener("click", e => {
+        e.preventDefault
+        loginForm.classList.remove("form--hidden");
+        registerForm.classList.add("form--hidden");
+    });
+
+    loginForm.addEventListener("submit", e => {
+        e.preventDefault();
+
+        //fetch
+
+        setFormMessage(loginForm, "error", "Wrong username or password.")
+    })
+});
