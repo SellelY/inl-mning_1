@@ -1,10 +1,10 @@
 "use strict";
 
-const name = document.getElementById("name");
-const password = document.getElementById("password");
-const form = document.getElementById("form");
+function setFormMessage(formElement, type, message) {
+    const messageElement = formElement.querySelector(".form__message");
 
-//Förhindrar input från att refresha när vi klickar på button
-form.addEventListener("submit", (e) => {
-    e.preventDefault();
-})
+    messageElement.textContent = message;
+    messageElement.classList.remove("form__message--success", "form__message--error");
+    messageElement.classList.add(`form__message--${type}`);
+}
+
